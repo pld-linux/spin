@@ -1,12 +1,12 @@
 Summary:	On-the-fly, LTL model checking with SPIN
 Summary(pl):	Sprawdzanie modeli LTL w locie przy u¿yciu SPIN
 Name:		spin
-Version:	4.1.1
+Version:	4.1.3
 Release:	0.1
 License:	Spin Public license
 Group:		Development/Tools
-Source0:	http://spinroot.com/spin/Src/%{name}411.tar.gz
-# Source0-md5:	92cfde0b46dc3a006a4bd55525a8eb1d
+Source0:	http://spinroot.com/spin/Src/%{name}413.tar.gz
+# Source0-md5:	129c26d6629c1ccf24e9cef14564f281
 URL:		http://spinroot.com/spin/whatispin.html
 BuildRequires:	yacc
 Requires:	tcl
