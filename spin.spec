@@ -29,7 +29,7 @@ Spin to popularne narzêdzie, którego mo¿na u¿ywaæ do formalnego
 sprawdzania systemów programów rozproszonych. Narzêdzie by³o rozwijane
 w Bell Labs w oryginalnej grupie Uniksa z Computing Sciences Research
 Center pocz±wszy od 1980 roku. Jest dostêpne za darmo od 1991 i nadal
-dostrzymuje kroku. We wrze¶niu 2002 narzêdzie to otrzyma³o presti¿ow±
+dotrzymuje kroku. We wrze¶niu 2002 narzêdzie to otrzyma³o presti¿ow±
 nagrodê System Software Award 2001 roku od ACM.
 
 http://cm.bell-labs.com/cm/cs/what/spin/spin_license.html
