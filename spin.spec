@@ -20,6 +20,8 @@ original Unix group of the Computing Sciences Research Center, starting in
 evolve to keep pace with new developments in the field. In April 2002 the tool
 was awarded the prestigious System Software Award for 2001 by the ACM.
 
+http://cm.bell-labs.com/cm/cs/what/spin/spin_license.html
+
 %package xspin
 Summary:	Graphical user interface to Spin
 Group:		Development/Tools
