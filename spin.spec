@@ -8,7 +8,8 @@ Group:		Development/Tools
 Source0:	http://spinroot.com/spin/Src/%{name}413.tar.gz
 # Source0-md5:	129c26d6629c1ccf24e9cef14564f281
 URL:		http://spinroot.com/spin/whatispin.html
-BuildRequires:	yacc
+Patch0:		%{name}-use_bison.patch
+BuildRequires:	bison
 Requires:	tcl
 Requires:	tk
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -48,6 +49,7 @@ Xspin to graficzny interfejs u¿ytkownika do Spina, napisany w Tcl/Tk.
 
 %prep
 %setup -q -c
+%patch0 -p1
 
 %build
 cd Src*
