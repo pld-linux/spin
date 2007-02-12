@@ -1,5 +1,5 @@
 Summary:	On-the-fly, LTL model checking with SPIN
-Summary(pl):	Sprawdzanie modeli LTL w locie przy u¿yciu SPIN
+Summary(pl.UTF-8):   Sprawdzanie modeli LTL w locie przy uÅ¼yciu SPIN
 Name:		spin
 Version:	4.2.7
 Release:	0.1
@@ -25,27 +25,27 @@ prestigious System Software Award for 2001 by the ACM.
 
 http://cm.bell-labs.com/cm/cs/what/spin/spin_license.html
 
-%description -l pl
-Spin to popularne narzêdzie, którego mo¿na u¿ywaæ do formalnego
-sprawdzania systemów programów rozproszonych. Narzêdzie by³o rozwijane
+%description -l pl.UTF-8
+Spin to popularne narzÄ™dzie, ktÃ³rego moÅ¼na uÅ¼ywaÄ‡ do formalnego
+sprawdzania systemÃ³w programÃ³w rozproszonych. NarzÄ™dzie byÅ‚o rozwijane
 w Bell Labs w oryginalnej grupie Uniksa z Computing Sciences Research
-Center pocz±wszy od 1980 roku. Jest dostêpne za darmo od 1991 i nadal
-dotrzymuje kroku. We wrze¶niu 2002 narzêdzie to otrzyma³o presti¿ow±
-nagrodê System Software Award 2001 roku od ACM.
+Center poczÄ…wszy od 1980 roku. Jest dostÄ™pne za darmo od 1991 i nadal
+dotrzymuje kroku. We wrzeÅ›niu 2002 narzÄ™dzie to otrzymaÅ‚o prestiÅ¼owÄ…
+nagrodÄ™ System Software Award 2001 roku od ACM.
 
 http://cm.bell-labs.com/cm/cs/what/spin/spin_license.html
 
 %package xspin
 Summary:	Graphical user interface to Spin
-Summary(pl):	Graficzny interfejs u¿ytkownika do Spina
+Summary(pl.UTF-8):   Graficzny interfejs uÅ¼ytkownika do Spina
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
 %description xspin
 Xspin is graphical user interface to Spin, written in Tcl/Tk.
 
-%description xspin -l pl
-Xspin to graficzny interfejs u¿ytkownika do Spina, napisany w Tcl/Tk.
+%description xspin -l pl.UTF-8
+Xspin to graficzny interfejs uÅ¼ytkownika do Spina, napisany w Tcl/Tk.
 
 %prep
 %setup -q -c
