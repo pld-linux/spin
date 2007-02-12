@@ -1,5 +1,5 @@
 Summary:	On-the-fly, LTL model checking with SPIN
-Summary(pl.UTF-8):   Sprawdzanie modeli LTL w locie przy użyciu SPIN
+Summary(pl.UTF-8):	Sprawdzanie modeli LTL w locie przy użyciu SPIN
 Name:		spin
 Version:	4.2.7
 Release:	0.1
@@ -37,7 +37,7 @@ http://cm.bell-labs.com/cm/cs/what/spin/spin_license.html
 
 %package xspin
 Summary:	Graphical user interface to Spin
-Summary(pl.UTF-8):   Graficzny interfejs użytkownika do Spina
+Summary(pl.UTF-8):	Graficzny interfejs użytkownika do Spina
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
