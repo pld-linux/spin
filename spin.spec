@@ -1,15 +1,14 @@
 Summary:	On-the-fly, LTL model checking with SPIN
 Summary(pl.UTF-8):	Sprawdzanie modeli LTL w locie przy użyciu SPIN
 Name:		spin
-Version:	4.2.7
+Version:	5.1.7
 Release:	0.1
 License:	Spin Public license
 Group:		Development/Tools
-Source0:	http://spinroot.com/spin/Src/%{name}427.tar.gz
-# Source0-md5:	a4fc8c6a30b7746a2d7acb2cf262ec97
+Source0:	http://spinroot.com/spin/Src/%{name}517.tar.gz
+# Source0-md5:	2d069adc30e318b1ba71bdecc1721d97
 URL:		http://spinroot.com/spin/whatispin.html
-Patch0:		%{name}-use_bison.patch
-BuildRequires:	bison
+BuildRequires:	yacc
 Requires:	tcl
 Requires:	tk
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,30 +48,28 @@ Xspin to graficzny interfejs użytkownika do Spina, napisany w Tcl/Tk.
 
 %prep
 %setup -q -c
-%patch0 -p1
 
 %build
-cd Src*
-%{__make} -f make_unix \
-	CFLAGS="-ansi -D_POSIX_SOURCE %{rpmcflags}"
+cd Spin/Src*
+%{__make} CFLAGS="-ansi -D_POSIX_SOURCE %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_datadir}/%{name}}
 
-install Src*/spin $RPM_BUILD_ROOT%{_bindir}
-install Man/spin.1 $RPM_BUILD_ROOT%{_mandir}/man1
-cp -a Test/* $RPM_BUILD_ROOT%{_datadir}/%{name}
+install Spin/Src*/spin $RPM_BUILD_ROOT%{_bindir}
+install Spin/Man/spin.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -a Spin/Test/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 echo "#!/usr/bin/wish -f" > $RPM_BUILD_ROOT%{_bindir}/xspin
-tail -n $(expr `cat Xspin*/xspin*.tcl | wc -l` - 3) Xspin*/xspin*.tcl >> $RPM_BUILD_ROOT%{_bindir}/xspin
+tail -n $(expr `cat Spin/Xspin*/xspin*.tcl | wc -l` - 3) Spin/Xspin*/xspin*.tcl >> $RPM_BUILD_ROOT%{_bindir}/xspin
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.html Doc/*
+%doc Spin/README.html Spin/Doc/*
 %attr(755,root,root) %{_bindir}/spin
 %{_mandir}/man1/*
 %{_datadir}/%{name}
