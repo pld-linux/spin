@@ -2,7 +2,7 @@ Summary:	On-the-fly, LTL model checking with SPIN
 Summary(pl.UTF-8):	Sprawdzanie modeli LTL w locie przy użyciu SPIN
 Name:		spin
 Version:	5.2.4
-Release:	1
+Release:	2
 License:	Spin Public license
 Group:		Development/Tools
 Source0:	http://spinroot.com/spin/Src/%{name}524.tar.gz
@@ -53,7 +53,7 @@ Xspin to graficzny interfejs użytkownika do Spina, napisany w Tcl/Tk.
 
 %build
 cd Spin/Src*
-%{__make} CFLAGS="-ansi -D_POSIX_SOURCE %{rpmcflags}"
+%{__make} -j1 CFLAGS="-ansi -D_POSIX_SOURCE %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
