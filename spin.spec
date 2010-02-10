@@ -1,12 +1,14 @@
 Summary:	On-the-fly, LTL model checking with SPIN
 Summary(pl.UTF-8):	Sprawdzanie modeli LTL w locie przy użyciu SPIN
 Name:		spin
-Version:	5.1.7
-Release:	0.1
+Version:	5.2.4
+Release:	1
 License:	Spin Public license
 Group:		Development/Tools
-Source0:	http://spinroot.com/spin/Src/%{name}517.tar.gz
-# Source0-md5:	2d069adc30e318b1ba71bdecc1721d97
+Source0:	http://spinroot.com/spin/Src/%{name}524.tar.gz
+# Source0-md5:	c869e7bd83c70be6565cf77c6a98b72c
+Source1:	http://spinroot.com/spin/Src/xspin523.tcl
+# Source1-md5:	893eb05798802cea4f281daaf34ce190
 URL:		http://spinroot.com/spin/whatispin.html
 BuildRequires:	yacc
 Requires:	tcl
@@ -62,7 +64,7 @@ install Spin/Man/spin.1 $RPM_BUILD_ROOT%{_mandir}/man1
 cp -a Spin/Test/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 echo "#!/usr/bin/wish -f" > $RPM_BUILD_ROOT%{_bindir}/xspin
-tail -n $(expr `cat Spin/Xspin*/xspin*.tcl | wc -l` - 3) Spin/Xspin*/xspin*.tcl >> $RPM_BUILD_ROOT%{_bindir}/xspin
+tail -n $(expr `cat %{SOURCE1} | wc -l` - 3) %{SOURCE1} >> $RPM_BUILD_ROOT%{_bindir}/xspin
 
 %clean
 rm -rf $RPM_BUILD_ROOT
