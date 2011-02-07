@@ -1,14 +1,13 @@
 Summary:	On-the-fly, LTL model checking with SPIN
 Summary(pl.UTF-8):	Sprawdzanie modeli LTL w locie przy użyciu SPIN
 Name:		spin
-Version:	5.2.4
-Release:	2
+Version:	6.0.1
+%define		_ver	%(echo %{version} | tr -d .)
+Release:	1
 License:	Spin Public license
 Group:		Development/Tools
-Source0:	http://spinroot.com/spin/Src/%{name}524.tar.gz
-# Source0-md5:	c869e7bd83c70be6565cf77c6a98b72c
-Source1:	http://spinroot.com/spin/Src/xspin523.tcl
-# Source1-md5:	893eb05798802cea4f281daaf34ce190
+Source0:	http://spinroot.com/spin/Src/%{name}%{_ver}.tar.gz
+# Source0-md5:	064d2e4d35ccaa13a8a2c8e427074ae3
 URL:		http://spinroot.com/spin/whatispin.html
 BuildRequires:	yacc
 Requires:	tcl
@@ -36,16 +35,17 @@ nagrodę System Software Award 2001 roku od ACM.
 
 http://cm.bell-labs.com/cm/cs/what/spin/spin_license.html
 
-%package xspin
+%package ispin
 Summary:	Graphical user interface to Spin
 Summary(pl.UTF-8):	Graficzny interfejs użytkownika do Spina
 Group:		Development/Tools
 Requires:	%{name} = %{version}-%{release}
+Obsoletes:	spin-xspin
 
-%description xspin
+%description ispin
 Xspin is graphical user interface to Spin, written in Tcl/Tk.
 
-%description xspin -l pl.UTF-8
+%description ispin -l pl.UTF-8
 Xspin to graficzny interfejs użytkownika do Spina, napisany w Tcl/Tk.
 
 %prep
@@ -57,14 +57,14 @@ cd Spin/Src*
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_datadir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_examplesdir}/%{name}-%{version}}
 
 install Spin/Src*/spin $RPM_BUILD_ROOT%{_bindir}
 install Spin/Man/spin.1 $RPM_BUILD_ROOT%{_mandir}/man1
-cp -a Spin/Test/* $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -a Spin/{Samples,Test} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-echo "#!/usr/bin/wish -f" > $RPM_BUILD_ROOT%{_bindir}/xspin
-tail -n $(expr `cat %{SOURCE1} | wc -l` - 3) %{SOURCE1} >> $RPM_BUILD_ROOT%{_bindir}/xspin
+echo "#!/usr/bin/wish -f" > $RPM_BUILD_ROOT%{_bindir}/ispin
+tail -n +4 Spin/iSpin/ispin.tcl >> $RPM_BUILD_ROOT%{_bindir}/ispin
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,8 +74,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc Spin/README.html Spin/Doc/*
 %attr(755,root,root) %{_bindir}/spin
 %{_mandir}/man1/*
-%{_datadir}/%{name}
+%{_examplesdir}/%{name}-%{version}
 
-%files xspin
+%files ispin
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/xspin
+%attr(755,root,root) %{_bindir}/ispin
