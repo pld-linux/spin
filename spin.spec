@@ -3,11 +3,12 @@ Summary(pl.UTF-8):	Sprawdzanie modeli LTL w locie przy użyciu SPIN
 Name:		spin
 Version:	6.0.1
 %define		_ver	%(echo %{version} | tr -d .)
-Release:	1
+Release:	2
 License:	Spin Public license
 Group:		Development/Tools
 Source0:	http://spinroot.com/spin/Src/%{name}%{_ver}.tar.gz
 # Source0-md5:	064d2e4d35ccaa13a8a2c8e427074ae3
+Source1:	ispin.desktop
 URL:		http://spinroot.com/spin/whatispin.html
 BuildRequires:	yacc
 Requires:	tcl
@@ -57,11 +58,14 @@ cd Spin/Src*
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_examplesdir}/%{name}-%{version}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_examplesdir}/%{name}-%{version}} \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
 install Spin/Src*/spin $RPM_BUILD_ROOT%{_bindir}
 install Spin/Man/spin.1 $RPM_BUILD_ROOT%{_mandir}/man1
 cp -a Spin/{Samples,Test} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/ispin.desktop
 
 echo "#!/usr/bin/wish -f" > $RPM_BUILD_ROOT%{_bindir}/ispin
 tail -n +4 Spin/iSpin/ispin.tcl >> $RPM_BUILD_ROOT%{_bindir}/ispin
@@ -79,3 +83,4 @@ rm -rf $RPM_BUILD_ROOT
 %files ispin
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ispin
+%{_desktopdir}/ispin.desktop
